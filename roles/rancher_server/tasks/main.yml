@@ -1,0 +1,5 @@
+---
+
+# single node configuration
+- name: rancher/server
+  shell: docker run -d --restart=always -p 8080:8080 rancher/server
