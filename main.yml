@@ -1,6 +1,6 @@
 ---
 
-- hosts: docker_hosts
+- hosts: rancher_server
   sudo: yes
 
   vars:
@@ -9,3 +9,4 @@
   roles:
     - base
     - docker
+    - rancher_server
