@@ -1,6 +1,8 @@
 # ansible-rancher
 
-This ansible playbook provisions an Ubuntu 14.04 server with a base Docker environment and [Rancher][r].
+This ansible playbook provisions a set of Ubuntu 14.04 servers with a base Docker environment and [Rancher][r].
+
+(only the master is installed automatically at the moment, since Rancher requires a token to set up slaves)
 
 ## Instructions
 
