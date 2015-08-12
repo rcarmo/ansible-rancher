@@ -10,3 +10,14 @@
     - base
     - docker
     - rancher_server
+
+- hosts: rancher_hosts
+  sudo: yes
+
+  vars:
+    - docker_bootstrap: "https://get.docker.com/"
+
+  roles:
+    - base
+    - docker
+    # Rancher needs to be provisioned manually using a server-issued token
