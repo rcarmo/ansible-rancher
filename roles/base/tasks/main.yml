@@ -4,9 +4,13 @@
   authorized_key: user={{ ansible_ssh_user }} key="{{ item }}"
   with_file:
      - ~/.ssh/id_rsa.pub
+  tags:
+    - configuration
 
 - name: update APT cache
   apt: update_cache=yes cache_valid_time=3600
+  tags:
+    - packages
 
 - name: install base packages
   apt: name={{ item }} state=latest 
@@ -19,6 +23,8 @@
     - wget
     - python
     - python-pip
+  tags:
+    - packages
 
 - name: locale setup
   shell: locale-gen en_US.UTF-8
@@ -29,6 +35,9 @@
     - LANG="en_US.UTF-8"
     - LC_ALL="en_US.UTF-8"
   sudo: yes
+  tags:
+    - configuration
+
 
 - name: system tuning
   shell: sysctl -w "{{ item }}"
@@ -86,3 +95,5 @@
     # allow reuse of TIME_WAIT sockets
     - net.ipv4.tcp_tw_reuse=1
   sudo: yes
+  tags:
+    - configuration

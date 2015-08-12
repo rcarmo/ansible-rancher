@@ -2,11 +2,17 @@
 
 - name: fetch bootstrap script
   get_url: url={{ docker_bootstrap }} dest=/tmp/docker-bootstrap.sh
+  tags:
+    - packages
 
 - name: install docker
   shell: sh /tmp/docker-bootstrap.sh
   sudo: yes
+  tags:
+    - packages
   
 - name: add current user to docker group
   shell: usermod -aG docker {{ ansible_ssh_user }}
   sudo: yes
+  tags:
+    - configuration
