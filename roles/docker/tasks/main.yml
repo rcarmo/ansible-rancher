@@ -1,0 +1,8 @@
+---
+
+- name: fetch bootstrap script
+  get_url:{{ docker_bootstrap }} dest=/tmp/docker-bootstrap.sh
+
+- name: install docker
+  shell: sh /tmp/docker-bootstrap.sh
+  sudo: yes

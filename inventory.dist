@@ -1,0 +1,2 @@
+[docker_hosts]
+server1 hostname=my.domain ansible_ssh_port=22 ansible_ssh_host=192.168.33.10 ansible_ssh_user=vagrant

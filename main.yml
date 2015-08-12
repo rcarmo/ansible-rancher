@@ -1,0 +1,11 @@
+---
+
+- hosts: docker_hosts
+  sudo: yes
+
+  vars:
+    - docker_bootstrap: "https://get.docker.com/"
+
+  roles:
+    - base
+    - docker
